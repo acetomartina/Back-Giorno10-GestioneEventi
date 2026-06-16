@@ -20,11 +20,14 @@ public class Evento {
     // tipi di attributi
     private Long id;
     private String titolo;
+    @Column(name = "data_evento")
     private LocalDate dataEvento;
     private String descrizione;
     //salviamo gli ENUM come testo nel DB
     @Enumerated(EnumType.STRING)
+    @Column(name = "tipo_evento")
     private TipoEvento tipoEvento;
+    @Column(name = "numero_massimo_partecipanti")
     private int numeroMassimoPartecipanti;
 
     // costruttore vuoto per Hibernate
