@@ -1,4 +1,6 @@
 package entities;
 
-public class TipoEvento {
+public enum TipoEvento {
+    PUBBLICO,
+    PRIVATO
 }
