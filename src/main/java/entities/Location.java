@@ -49,6 +49,14 @@ public class Location {
         this.citta=citta;
     }
 
+    @Override
+    public String toString() {
+        return "Location{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", citta='" + citta + '\'' +
+                '}';
+    }
 
 
 }

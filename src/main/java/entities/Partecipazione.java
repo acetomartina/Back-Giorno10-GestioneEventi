@@ -58,4 +58,14 @@ public class Partecipazione {
         this.stato = stato;
     }
 
+    @Override
+    public String toString() {
+        return "Partecipazione{" +
+                "id=" + id +
+                ", persona=" + persona.getNome() + " " + persona.getCognome() +
+                ", evento=" + evento.getTitolo() +
+                ", stato=" + stato +
+                '}';
+    }
+
 }

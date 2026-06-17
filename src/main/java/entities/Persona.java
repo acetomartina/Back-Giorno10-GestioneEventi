@@ -50,4 +50,16 @@ public class Persona {
 
     public Sesso getSesso() { return sesso; }
 
+    @Override
+    public String toString() {
+        return "Persona{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", cognome='" + cognome + '\'' +
+                ", email='" + email + '\'' +
+                ", dataDiNascita=" + dataDiNascita +
+                ", sesso=" + sesso +
+                '}';
+    }
+
 }
