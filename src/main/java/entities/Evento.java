@@ -2,15 +2,15 @@ package entities;
 
 
 import jakarta.persistence.*;
+
 import java.time.LocalDate;
+import java.util.List;
 
 // entity fa diventare la classe una tabella
 // da table diamo il nome della tabella
 @Entity
 @Table(name = "eventi")
-// inizia la classe
 public class Evento {
-
     // chiave primaria
     @Id
     // l'id viene generato automaticamente nel DB
@@ -29,17 +29,24 @@ public class Evento {
     private TipoEvento tipoEvento;
     @Column(name = "numero_massimo_partecipanti")
     private int numeroMassimoPartecipanti;
+    @ManyToOne
+    @JoinColumn(name = "location_id")
+    private Location location;
+
+    @OneToMany(mappedBy = "evento")
+    private List<Partecipazione> listaPartecipazioni;
 
     // costruttore vuoto per Hibernate
     public Evento(){}
 
     // costruttore vero
-    public Evento(String titolo, LocalDate dataEvento, String descrizione, TipoEvento tipoEvento, int numeroMassimoPartecipanti){
+    public Evento(String titolo, LocalDate dataEvento, String descrizione, TipoEvento tipoEvento, int numeroMassimoPartecipanti, Location location){
         this.titolo = titolo;
         this.dataEvento = dataEvento;
         this.descrizione = descrizione;
         this.tipoEvento = tipoEvento;
         this.numeroMassimoPartecipanti = numeroMassimoPartecipanti;
+        this.location = location;
     }
 
     public Long getId() {
@@ -84,6 +91,14 @@ public class Evento {
 
     public void setNumeroMassimoPartecipanti(int numeroMassimoPartecipanti) {
         this.numeroMassimoPartecipanti = numeroMassimoPartecipanti;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
     }
 
     @Override
